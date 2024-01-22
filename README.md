@@ -23,11 +23,11 @@ N/A
 
 The following resources were used.
 
-* https://www.w3schools.com/
-* https://developer.mozilla.org/en-US/
-* https://getbootstrap.com/
-* https://api.jquery.com/
-* https://day.js.org/
+* <https://www.w3schools.com/>
+* <https://developer.mozilla.org/en-US/>
+* <https://getbootstrap.com/>
+* <https://api.jquery.com/>
+* <https://day.js.org/>
 
 ## License
 

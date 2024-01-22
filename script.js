@@ -1,7 +1,7 @@
 $("document").ready(function () {
 
     // Shows todays's date
-    var today = dayjs('2024-01-23').format('dddd[,] MMMM D[th]');
+    var today = dayjs().format('dddd[,] MMMM D[th]');
     if ((today.includes('1th') || today.includes('2th') || today.includes('3th')) && !(today.includes('11th') || today.includes('12th') || today.includes('13th'))) {
         today = today.replace("1th", "1st").replace("2th", "2nd").replace("3th", "3rd");;
     }
@@ -19,10 +19,10 @@ $("document").ready(function () {
     for (let i = 0; i < hours.length; i++) {
         // Adds a row
         $(".container").append("<div class='row'></div>");
-        
+
         // Adds a time block to the row
         $(".row:last").append("<div class='col-1 text-right hour'><p class='time-block'>" + hours[i] + "</p></div>");
-        
+
         // Adds an input section to the row
         $(".row:last").append("<div class='col-10 border border-dark p-0'><input class='description'></input></div>");
         // Checks if already there was a schedule for this time and adds it to input
@@ -40,7 +40,7 @@ $("document").ready(function () {
     $(".description").addClass("w-100 h-100 m-0 p-2 border-0 text-dark text-wrap");
 
     // Gets the current hour
-    var now = dayjs().hour(10).hour();
+    var now = dayjs().hour();
     // Finds the current time index in the hour array if any exist
     currentTimeIndex = now - 9;
 
