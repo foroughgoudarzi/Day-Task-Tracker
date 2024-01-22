@@ -13,6 +13,7 @@ Figure 1 shows a screenshot of the running application.
 <figcaption><em>Figure.1. Running Day Task Tracker</em></figcaption>
 </figure>
 
+<br>
 When a user opens the scheduler, the current date is displayed at the top of the calendar. Each standard working hour (from 9 AM to 5 PM) is represented by a dedicated row, allowing users to add and save schedules for each time slot. The color-coded rows visually indicate whether a particular time slot is in the past (displayed in grey), present (in red), or future (in green), providing users with an intuitive way to manage their daily tasks.
 
 ## Installation
