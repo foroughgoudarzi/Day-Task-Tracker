@@ -1,7 +1,7 @@
 $("document").ready(function () {
 
     // Shows todays's date
-    var today = dayjs().format('dddd[,] MMMM D[th]');
+    var today = dayjs('2024-01-23').format('dddd[,] MMMM D[th]');
     if ((today.includes('1th') || today.includes('2th') || today.includes('3th')) && !(today.includes('11th') || today.includes('12th') || today.includes('13th'))) {
         today = today.replace("1th", "1st").replace("2th", "2nd").replace("3th", "3rd");;
     }
@@ -13,7 +13,7 @@ $("document").ready(function () {
     // Gets previous schedules from local storage
     const oldSchedules = JSON.parse(localStorage.getItem("schedules"));
 
-    var hours = ["9AM", "10AM", "11AM", "12PM", "1PM", "2PM", "3PM", "4PM", "5PM"];
+    var hours = ["9 AM", "10 AM", "11 AM", "12 PM", "1 PM", "2 PM", "3 PM", "4 PM", "5 PM"];
 
     // Creates the structure of the schedualer and shows previous schedules
     for (let i = 0; i < hours.length; i++) {
@@ -21,11 +21,11 @@ $("document").ready(function () {
         $(".container").append("<div class='row'></div>");
         
         // Adds a time block to the row
-        $(".row:last").append("<div class='col-1 text-right hourgit '><p class='time-block'>" + hours[i] + "</p></div>");
+        $(".row:last").append("<div class='col-1 text-right hour'><p class='time-block'>" + hours[i] + "</p></div>");
         
         // Adds an input section to the row
         $(".row:last").append("<div class='col-10 border border-dark p-0'><input class='description'></input></div>");
-        // Checks if already there was a schedule for this time and shows it
+        // Checks if already there was a schedule for this time and adds it to input
         if (oldSchedules != null) {
             if (oldSchedules[i] != undefined) {
                 $("input:last").attr("value", oldSchedules[i]);
@@ -40,7 +40,7 @@ $("document").ready(function () {
     $(".description").addClass("w-100 h-100 m-0 p-2 border-0 text-dark text-wrap");
 
     // Gets the current hour
-    var now = dayjs().hour();
+    var now = dayjs().hour(10).hour();
     // Finds the current time index in the hour array if any exist
     currentTimeIndex = now - 9;
 
