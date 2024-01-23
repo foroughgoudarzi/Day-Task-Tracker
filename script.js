@@ -10,6 +10,7 @@ $("document").ready(function () {
     // Adds space below the header line and scheduler
     $("header").css("margin-bottom", "30px");
 
+    // Adds a paragraph above the time table that appears when something is saved
     var saveMsg = $('<p>');
     var saveSpan = $('<span>');
 
