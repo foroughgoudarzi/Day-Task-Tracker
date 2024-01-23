@@ -10,6 +10,14 @@ $("document").ready(function () {
     // Adds space below the header line and scheduler
     $("header").css("margin-bottom", "30px");
 
+    var saveMsg = $('<p>');
+    var saveSpan = $('<span>');
+
+    saveSpan.css({ "display": "none", "color": "red" }).text("localStorage!");
+    saveMsg.text("Changes saved in ").addClass("d-flex d-none justify-content-center");
+    saveMsg.append(saveSpan);
+    $(".container").prepend(saveMsg);
+
     // Gets previous schedules from local storage
     const oldSchedules = JSON.parse(localStorage.getItem("schedules"));
 
@@ -74,9 +82,17 @@ $("document").ready(function () {
         } else {
             schedules[index] = thisRowInput;
         }
-        localStorage.setItem("schedules", JSON.stringify(schedules))
+        localStorage.setItem("schedules", JSON.stringify(schedules));
+
+        // Shows a message for 1 sec that event was saved
+        saveMsg.addClass("d-inline").removeClass("d-none");
+        saveSpan.addClass("d-inline").removeClass("d-none");
+        setTimeout(function () {
+            saveMsg.addClass("d-none");
+            saveSpan.addClass("d-none");
+        }, 1000);
     });
 
     //Adds bottom margin
     $(".container").css("margin-bottom", "40px");
-})
+});
